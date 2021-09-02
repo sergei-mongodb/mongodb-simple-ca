@@ -69,7 +69,7 @@ Using configuration from /home/abr/tmp/MongoDB-demo-CA/openssl.cnf
 [INFO] Oki dockie!
 ```
 
-generated files
+Generated files:
 ```
 ├── cert-chains
 ├── openssl.cnf
@@ -108,6 +108,35 @@ Parameters:
 -  `rhel73`: The name for this particular certificate inside Certificate Authority. Certificate's filenames will be derived from this parameter.
 -  `rhel-73.acme.qa 10.211.55.20`: The space-separated list of hostnames and IP addresses for the certificate. The first value in the list goes to the *Common Name* field in the certificate, and the whole list will be represented in the *X509v3 Subject Alternative Name* field.
 
+
+Generated files:
+```
+├── cert-chains
+├── openssl.cnf
+└── root
+    ├── certs
+    │   ├── rhel7.crt.pem
+    │   ├── root.ca.crt.der
+    │   └── root.ca.crt.pem
+    ├── crl
+    │   └── ca.crl.pem
+    ├── crlnumber
+    ├── crlnumber.old
+    ├── csr
+    │   └── rhel7.csr.pem
+    ├── index.txt
+    ├── index.txt.attr
+    ├── index.txt.old
+    ├── newcerts
+    │   └── 1000.pem
+    ├── private
+    │   ├── rhel7.key.pem
+    │   ├── rhel7.pem
+    │   └── root.ca.key.pem
+    ├── serial
+    └── serial.old
+ ```
+ 
 ### 3. Run `mongod` with SSL, no authentication
 
 #### 3.1 Create the following MongoDB Server configuration file (`mongod.conf`):
@@ -159,6 +188,42 @@ Parameters:
 - `CLIENT`: A constant, indicating that the **client** certificate will be created.
 - `shell`: The name for this particular certificate inside Certificate Authority. Certificate's filenames will be derived from this parameter.
 - `'MongoDB Shell'`: Client certificate's *Common Name*
+
+
+Generated files:
+```
+.
+├── cert-chains
+├── openssl.cnf
+└── root
+    ├── certs
+    │   ├── rhel7.crt.pem
+    │   ├── root.ca.crt.der
+    │   ├── root.ca.crt.pem
+    │   └── shell.crt.pem
+    ├── crl
+    │   └── ca.crl.pem
+    ├── crlnumber
+    ├── crlnumber.old
+    ├── csr
+    │   ├── rhel7.csr.pem
+    │   └── shell.csr.pem
+    ├── index.txt
+    ├── index.txt.attr
+    ├── index.txt.attr.old
+    ├── index.txt.old
+    ├── newcerts
+    │   ├── 1000.pem
+    │   └── 1001.pem
+    ├── private
+    │   ├── rhel7.key.pem
+    │   ├── rhel7.pem
+    │   ├── root.ca.key.pem
+    │   ├── shell.key.pem
+    │   └── shell.pem
+    ├── serial
+    └── serial.old
+ ```
 
 ### 5. Connect to MongoDB Server using the generated client certificate
 
