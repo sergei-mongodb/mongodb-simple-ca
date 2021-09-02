@@ -29,6 +29,26 @@ $ ./ca_mongodb.sh
 [INFO] ./ca_mongodb.sh initial_ca_init
 ```
 
+generated files
+```
+├── cert-chains
+├── openssl.cnf
+└── root
+    ├── certs
+    │   ├── root.ca.crt.der
+    │   └── root.ca.crt.pem
+    ├── crl
+    │   └── ca.crl.pem
+    ├── crlnumber
+    ├── crlnumber.old
+    ├── csr
+    ├── index.txt
+    ├── newcerts
+    ├── private
+    │   └── root.ca.key.pem
+    └── serial
+ ```
+
 #### 1.2. Edit the configuration file
 
 ```
